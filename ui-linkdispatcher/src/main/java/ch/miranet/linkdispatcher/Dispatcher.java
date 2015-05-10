@@ -26,7 +26,8 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
+
+import com.google.common.base.Optional;
 
 /**
  * Using ui-linkdispatcher as Web Browser in Eclipse allows you to
@@ -70,7 +71,7 @@ public abstract class Dispatcher {
 			return Optional.of(uri);
 		} catch (URISyntaxException uriEx) {
 			diagnosis.add(uriEx.getMessage());
-			return Optional.empty();
+			return Optional.absent();
 		}
 	}
 
@@ -81,7 +82,7 @@ public abstract class Dispatcher {
 
 		} catch (Exception ex) {
 			diagnosis.add(ex.getMessage());
-			return Optional.empty();
+			return Optional.absent();
 		}
 	}
 
@@ -92,7 +93,7 @@ public abstract class Dispatcher {
 
 		} catch (Exception ex) {
 			diagnosis.add(ex.getMessage());
-			return Optional.empty();
+			return Optional.absent();
 		}
 	}
 
@@ -102,7 +103,7 @@ public abstract class Dispatcher {
 
 		} else {
 			diagnosis.add(String.format("File does not exist: %s", file.getPath()));
-			return Optional.empty();
+			return Optional.absent();
 		}
 	}
 
